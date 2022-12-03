@@ -17,10 +17,10 @@ class Day1
 
   def file_data
     raw_data = File.read(input_file)
-    split_data = raw_data.split("\n\n").map{ |e| e.split("\n").map(&:to_i) }
+    split_data = raw_data.split("\n\n").map { |e| e.split("\n").map(&:to_i) }
   end
 
   def sumed_data
-    file_data.map{ |e| e.reduce(:+) }
+    file_data.map { |e| e.reduce(:+) }
   end
 end

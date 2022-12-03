@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'set'
 
 class Day3
@@ -7,7 +9,7 @@ class Day3
 
   def part1
     file_data.reduce(0) do |sum, rucksack|
-      sum += priority_score(duplicate_item(rucksack))
+      sum + priority_score(duplicate_item(rucksack))
     end
   end
 
@@ -17,11 +19,13 @@ class Day3
 
     set_data = file_data.map(&:to_set)
 
-    (0..number_of_groups).each.map do |group_number|
+    common_letter_groups = (0..number_of_groups).each.map do |group_number|
       start_index = group_number * 3
-      letter = common_item(set_data[start_index..(start_index + 2)])
-    end.reduce(0) do |sum, common_item|
-      sum += priority_score(common_item)
+      common_item(set_data[start_index..(start_index + 2)])
+    end
+
+    common_letter_groups.reduce(0) do |sum, common_item|
+      sum + priority_score(common_item)
     end
   end
 
@@ -31,7 +35,7 @@ class Day3
 
   def file_data
     raw_data = File.read(input_file)
-    split_data = raw_data.split("\n").map { |e| e.split('') }
+    raw_data.split("\n").map { |e| e.split('') }
   end
 
   def duplicate_item(rucksack_items)

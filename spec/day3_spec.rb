@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../day3'
 
 RSpec.describe Day3 do

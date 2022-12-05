@@ -34,8 +34,8 @@ def create_day_spec_file(day_number)
   require_relative '../day#{day_number}'
 
   RSpec.describe Day#{day_number} do
-    subject(:day#{day_number}_test) { Day1.new('spec/fixtures/day#{day_number}_test.txt') }
-    subject(:day#{day_number}_actual) { Day1.new('spec/fixtures/day#{day_number}_actual.txt') }
+    subject(:day#{day_number}_test) { Day#{day_number}.new('spec/fixtures/day#{day_number}_test.txt') }
+    subject(:day#{day_number}_actual) { Day#{day_number}.new('spec/fixtures/day#{day_number}_actual.txt') }
 
     describe '#part1' do
       it 'returns the correct value' do
